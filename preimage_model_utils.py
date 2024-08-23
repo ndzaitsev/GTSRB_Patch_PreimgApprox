@@ -248,3 +248,21 @@ class SimpleFeedForward(nn.Module):
         )
     def forward(self, inputs):
         return self.model(inputs)
+
+# Model added    
+class GTSRB_gs(nn.Module):
+    def __init__(self, in_dim=1024, hidden_dim=300, out_dim=43):
+        super().__init__()
+        self.model = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(in_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, out_dim)
+        )
+    def forward(self, inputs):
+        return self.model(inputs)
+######
