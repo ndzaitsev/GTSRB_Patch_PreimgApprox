@@ -190,7 +190,11 @@ def build_model(model_tp, model_info=None):
     if model_tp == 'simple_fnn':
         net = SimpleFeedForward()
     elif model_tp == 'two_layer':
-        net = TwoLayerFeedForward()  
+        net = TwoLayerFeedForward()
+    # brach added
+    elif model_tp == 'gtsrb_gs':
+        net = GTSRB_gs()  
+    #####
     elif model_tp == 'auto_park_model':
         if model_info is not None:
             if model_info['hidden_layer_num'] == 2:
