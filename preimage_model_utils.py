@@ -267,7 +267,7 @@ class SimpleFeedForward(nn.Module):
 # Model added    
 class GTSRB(nn.Module):
     def __init__(self):
-        super(GTSRB_gs, self).__init__()
+        super(GTSRB, self).__init__()
 
         self.flatten = nn.Flatten()
         self.fc1 = nn.Linear(32 * 32 * 3, 300)
