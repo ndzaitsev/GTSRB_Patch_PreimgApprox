@@ -204,7 +204,7 @@ def build_model(model_tp, model_info=None):
         net = TwoLayerFeedForward()  
     # brach added
     elif model_tp == 'gtsrb_gs':
-        net = GTSRB_gs()  
+        net = GTSRB()  
     #####
     elif model_tp == 'auto_park_model':
         if model_info is not None:
