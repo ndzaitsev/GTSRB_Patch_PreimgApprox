@@ -265,18 +265,23 @@ class SimpleFeedForward(nn.Module):
         return self.model(inputs)
 
 # Model added    
-class GTSRB(nn.Module):
-    def __init__(self, in_dim=1024, hidden_dim=300, out_dim=43):
-        super().__init__()
-        self.model = nn.Sequential(
-            nn.Linear(in_dim, hidden_dim),
-            nn.ReLU(),
-            nn.Linear(hidden_dim, hidden_dim),
-            nn.ReLU(),
-            nn.Linear(hidden_dim, hidden_dim),
-            nn.ReLU(),
-            nn.Linear(hidden_dim, out_dim)
-        )
-    def forward(self, inputs):
-        return self.model(inputs)
+class GTSRB_gs(nn.Module):
+    def __init__(self):
+        super(GTSRB_gs, self).__init__()
+
+        self.flatten = nn.Flatten()
+        self.fc1 = nn.Linear(32 * 32 * 3, 300)
+        self.dropout1 = nn.Dropout(0.4)
+        self.fc2 = nn.Linear(300, 300)
+        self.dropout2 = nn.Dropout(0.4)
+        self.fc3 = nn.Linear(300, 300)
+        self.output = nn.Linear(300, 43)
+
+    def forward(self, x):
+        x = self.flatten(x)
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = F.relu(self.fc3(x))
+        x = self.output(x)
+        return F.log_softmax(x, dim=1) 
 ######
