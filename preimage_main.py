@@ -445,12 +445,12 @@ if __name__ == "__main__":
         args.initial_max_domains = 3
         main(args) 
 
-    elif args.dataset == "gtsrb_gs":
+    elif args.dataset == "gtsrb":
         args.label = 0
         args.record = False
         args.effect = False
-        args.model_name = "gtsrb_gs"
-        args.model = 'gtsrb_gs.pt'
+        args.model_name = "gtsrb"
+        args.model = 'gtsrb.pt'
         args.output_dim = 43
         args.initial_max_domains = 1024
         args.hidden_layer_num = 3
