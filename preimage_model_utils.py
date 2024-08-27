@@ -270,7 +270,7 @@ class GTSRB(nn.Module):
         super(GTSRB, self).__init__()
 
         self.flatten = nn.Flatten()
-        self.fc1 = nn.Linear(32 * 32 * 3, 300)
+        self.fc1 = nn.Linear(32 * 32, 300)
         self.dropout1 = nn.Dropout(0.4)
         self.fc2 = nn.Linear(300, 300)
         self.dropout2 = nn.Dropout(0.4)
