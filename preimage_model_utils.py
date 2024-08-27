@@ -132,14 +132,6 @@ def load_input_bounds(dataset, truth_label, quant, trans):
             data_min = torch.tensor([[-0.5, -0.5, 0.1499, -0.5]]).reshape(1, -1)
         eps = None
         
-    # brach added
-    elif dataset == "grsrb_gs":
-        X = torch.tensor([[0, 0]]).float()
-        labels = torch.tensor([truth_label]).long()
-        data_max = torch.tensor([[1, 1]]).reshape(1, -1)
-        data_min = torch.tensor([[-1, -1]]).reshape(1, -1)
-        eps = None
-    #####
 
     return X, labels, data_max, data_min, eps
 
