@@ -250,7 +250,7 @@ def main(args=None):
     if ext == 'pt':
         if 'auto_park' in args.dataset: # different NNs for auto park case
             model_info = {'hidden_dim': args.hidden_dim, 'hidden_layer_num': args.hidden_layer_num}
-        if 'gtsrb_gs' in args.dataset:
+        if 'gtsrb' in args.dataset:
             model_info = {'hidden_dim': args.hidden_dim, 'hidden_layer_num': args.hidden_layer_num}
         model_ori = load_model_simple(model_name, model_path, model_info, weights_loaded=True)
     elif ext == 'onnx':
