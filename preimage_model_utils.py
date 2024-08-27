@@ -265,7 +265,7 @@ class SimpleFeedForward(nn.Module):
         return self.model(inputs)
 
 # Model added    
-class GTSRB_gs(nn.Module):
+class GTSRB(nn.Module):
     def __init__(self, in_dim=1024, hidden_dim=300, out_dim=43):
         super().__init__()
         self.model = nn.Sequential(
