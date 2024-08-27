@@ -131,6 +131,16 @@ def load_input_bounds(dataset, truth_label, quant, trans):
             data_max = torch.tensor([[0.5, 0.5, 0.1501, 0.5]]).reshape(1, -1)
             data_min = torch.tensor([[-0.5, -0.5, 0.1499, -0.5]]).reshape(1, -1)
         eps = None
+        
+    # brach added
+    elif dataset == "grsrb_gs":
+        X = torch.tensor([[0, 0]]).float()
+        labels = torch.tensor([truth_label]).long()
+        data_max = torch.tensor([[1, 1]]).reshape(1, -1)
+        data_min = torch.tensor([[-1, -1]]).reshape(1, -1)
+        eps = None
+    #####
+
     return X, labels, data_max, data_min, eps
 
 def load_input_bounds_numpy(dataset, quant=False, trans=False):
@@ -183,6 +193,7 @@ def load_input_bounds_numpy(dataset, quant=False, trans=False):
             data_lb = np.array([-0.5, -0.5, 0.1499, -0.5])
             data_ub = np.array([0.5, 0.5, 0.1501, 0.5])
         output_num = 9
+
     return data_lb, data_ub, output_num
 
 
@@ -190,7 +201,7 @@ def build_model(model_tp, model_info=None):
     if model_tp == 'simple_fnn':
         net = SimpleFeedForward()
     elif model_tp == 'two_layer':
-        net = TwoLayerFeedForward()
+        net = TwoLayerFeedForward()  
     # brach added
     elif model_tp == 'gtsrb_gs':
         net = GTSRB_gs()  
@@ -258,7 +269,6 @@ class GTSRB_gs(nn.Module):
     def __init__(self, in_dim=1024, hidden_dim=300, out_dim=43):
         super().__init__()
         self.model = nn.Sequential(
-            nn.Flatten(),
             nn.Linear(in_dim, hidden_dim),
             nn.ReLU(),
             nn.Linear(hidden_dim, hidden_dim),
