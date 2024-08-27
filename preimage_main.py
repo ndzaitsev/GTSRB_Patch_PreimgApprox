@@ -449,7 +449,7 @@ if __name__ == "__main__":
         args.label = 0
         args.record = False
         args.effect = False
-        args.model_name = "GTSRB_gs"
+        args.model_name = "gtsrb_gs"
         args.model = 'gtsrb_gs.pt'
         args.output_dim = 43
         args.initial_max_domains = 1024
