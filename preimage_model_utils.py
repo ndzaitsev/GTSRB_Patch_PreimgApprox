@@ -132,12 +132,6 @@ def load_input_bounds(dataset, truth_label, quant, trans):
             data_min = torch.tensor([[-0.5, -0.5, 0.1499, -0.5]]).reshape(1, -1)
         eps = None
         
-    elif dataset == 'gtsrb':
-        X = torch.full((32, 32), 0.5).float()
-        labels = torch.tensor([truth_label]).long()
-        data_max = torch.full((32, 32), 1).reshape(1, -1)
-        data_min = torch.full((32, 32), 0).reshape(1, -1)
-        eps = None
 
     return X, labels, data_max, data_min, eps
 
@@ -181,14 +175,7 @@ def load_input_bounds_numpy(dataset, quant=False, trans=False):
     elif dataset == 'pos_neg_box':
         data_lb = np.array([-1, -1])
         data_ub = np.array([1, 1])
-        output_num = 2
-
-    elif dataset == 'gtsrb':
-        data_lb = np.zeros((32, 32))
-        data_ub = np.ones((32, 32))
-        output_num = 43    
-
-
+        output_num = 2        
     elif dataset == 'vcas':
         # NOTE use the vcas lb, ub to normalized range
         if quant:
