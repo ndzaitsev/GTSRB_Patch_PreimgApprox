@@ -443,17 +443,6 @@ if __name__ == "__main__":
         args.initial_max_domains = 3
         main(args) 
 
-    #
-    elif args.dataset == "gtsrb_gs":
-        args.label = 
-        args.record = False
-        args.effect = False
-        args.model_name = "gtsrb_gs"
-        args.model = 'gtsrb_gs.pt'
-        args.output_dim = 4
-        args.initial_max_domains = 3
-        main(args) 
-    #####
 
     else:
         print('The configured dataset is not supported.')   
