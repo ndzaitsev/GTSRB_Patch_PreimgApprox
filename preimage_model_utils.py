@@ -265,7 +265,7 @@ class SimpleFeedForward(nn.Module):
         return self.model(inputs)
 
 # Model added    
-class GTSRB_gs(nn.Module):
+class GTSRB(nn.Module):
     def __init__(self):
         super(GTSRB_gs, self).__init__()
 
