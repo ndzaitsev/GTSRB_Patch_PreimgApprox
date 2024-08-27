@@ -6,7 +6,7 @@ import argparse
 
 def get_args():
     parser = argparse.ArgumentParser(description="Preimage Approx for neural networks")
-    parser.add_argument('--dataset', type=str, default='dubinsrejoin', choices=["auto_park", "vcas", "cartpole", "lunarlander", "dubinsrejoin", "gtsrb_gs"])
+    parser.add_argument('--dataset', type=str, default='dubinsrejoin', choices=["auto_park", "vcas", "cartpole", "lunarlander", "dubinsrejoin"])
     parser.add_argument('--vcas', type=int, default=1, help="(from 1-9) Index of models for VCAS classification problem. 0 indicates not vcas-model")  
     parser.add_argument('--label', type=int, default=0, help='which label to build input preimage for')
     # for ablation study of the proposed method
